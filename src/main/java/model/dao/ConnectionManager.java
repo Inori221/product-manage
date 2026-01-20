@@ -15,8 +15,8 @@ public class ConnectionManager {
         // DriverManagerを使ってDBに接続を確立
         // 引数は (接続URL, ユーザー名, パスワード)
         return DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/productdb?useSSL=false&characterEncoding=UTF-8",
+                "jdbc:mysql://localhost:3306/product_management?useSSL=false&characterEncoding=UTF-8",
                 "root",       // DBユーザー名
-                "password");  // DBパスワード
+                "Araki221");  // DBパスワード
     }
 }

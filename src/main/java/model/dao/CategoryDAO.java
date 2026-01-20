@@ -17,7 +17,7 @@ public class CategoryDAO {
         List<CategoryBean> list = new ArrayList<>();
 
         // 実行するSQL文（カテゴリIDと名前をID順に取得）
-        String sql = "SELECT category_id, category_name FROM categories ORDER BY category_id";
+        String sql = "SELECT id, category_name FROM categories ORDER BY id";
 
         // try-with-resources構文でDB接続やステートメントを自動クローズ
         try (Connection conn = ConnectionManager.getConnection(); // DB接続を取得
@@ -28,7 +28,7 @@ public class CategoryDAO {
             while (rs.next()) {
                 // 1行分のデータをCategoryBeanに詰める
                 CategoryBean cb = new CategoryBean();
-                cb.setCategoryId(rs.getInt("category_id"));       // category_id列を取得
+                cb.setCategoryId(rs.getInt("id"));       // id列を取得
                 cb.setCategoryName(rs.getString("category_name")); // category_name列を取得
 
                 // リストに追加

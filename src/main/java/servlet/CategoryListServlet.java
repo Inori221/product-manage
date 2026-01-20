@@ -36,6 +36,7 @@ public class CategoryListServlet extends HttpServlet {
             rd.forward(request, response);
 
         } catch (Exception e) {
+        	System.out.println(e);
             // 例外が発生した場合はログ出力
             e.printStackTrace();
 
