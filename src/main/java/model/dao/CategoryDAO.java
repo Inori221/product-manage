@@ -39,4 +39,23 @@ public class CategoryDAO {
         // 全件分のCategoryBeanリストを返す
         return list;
     }
+
+    public void insert(CategoryBean category) {
+
+        String sql = "INSERT INTO categories (id, category_name) VALUES (?, ?)";
+
+        try (Connection conn = ConnectionManager.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, category.getCategoryId());
+            ps.setString(2, category.getCategoryName());
+
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("カテゴリ登録に失敗しました");
+        }
+    }
+
 }
